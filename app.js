@@ -9,7 +9,8 @@ const getUser = async () => {
         const user = await User.findOne({_id : '65895ef05aff094c06beef5b'}) // user selected by id :) 
         // const user = await User.find({name : 'ali'}) // user select by any data
         // const user = await User.where("name").equals("hirad").select("name").populate("bestFriend").limit(2) // selected by mongodb syntax
-        console.log(user.namedEmail)
+        await user.save()
+        console.log(user)
     } catch(e) {
         console.error(e)
     }
