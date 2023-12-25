@@ -23,5 +23,11 @@ const userSchema = new mongoose.Schema({
     address : addressSchema
 })
 
+userSchema.methods.sayHi = function() {
+    console.log(`hello I'm ${this.name}`)
+}
+userSchema.virtual('namedEmail').get(function(){
+    return `${this.name} <${this.email}>`
+})
 module.exports = mongoose.model('User',userSchema)
 
